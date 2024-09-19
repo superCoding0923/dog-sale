@@ -14,25 +14,29 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className='flex justify-center items-center h-screen'>
+      <div className='w-[450px]'>
+        <h1 className='text-center text-3xl mb-5'>Login</h1>
+        <form className='flex flex-wrap flex-col gap-5' onSubmit={handleLogin}>
+          <input
+            className='p-2 border rounded-md focus:outline-2 focus:outline-offset-2 focus:outline-blue-500'
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            className='p-2 border rounded-md focus:outline-2 focus:outline-offset-2 focus:outline-blue-500'
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <button className='p-3 border rounded-md bg-blue-500 text-white' type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };
