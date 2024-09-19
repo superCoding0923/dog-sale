@@ -18,7 +18,7 @@ export const fetchBreeds = async (): Promise<string[]> => {
   return response.data;
 };
 
-export const searchDogs = async (query: any): Promise<PaginatedResponse<Dog>> => {
+export const searchDogs = async (query: any): Promise<PaginatedResponse> => {
   const response = await api.get('/dogs/search', { params: query });
   return response.data;
 };

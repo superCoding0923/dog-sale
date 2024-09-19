@@ -4,12 +4,12 @@ import { Dog } from '../types';
 
 interface DogListProps {
   dogs: Dog[];
-  onFavorite: (id: string) => void;
+  onFavorite: (dog: Dog) => void;
 }
 
 const DogList: React.FC<DogListProps> = ({ dogs, onFavorite }) => {
   return (
-    <div className="dog-list">
+    <div className="flex flex-wrap justify-between">
       {dogs.map((dog) => (
         <DogCard key={dog.id} dog={dog} onFavorite={onFavorite} />
       ))}

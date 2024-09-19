@@ -4,7 +4,4 @@
  */
 
 export { default as Auth } from './Auth';
-export { default as DogCard } from './DogCard';
-export { default as DogList } from './DogList';
-export { default as FavoriteDogs } from './FavoriteDogs';
-export { default as Pagination } from './Pagination';
+export { default as Search } from './Search';

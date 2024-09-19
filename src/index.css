@@ -5,21 +5,3 @@
 body {
 	font-family: Arial, sans-serif;
 }
-
-.dog-list {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.dog-card {
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin: 10px;
-	padding: 10px;
-	width: 200px;
-	text-align: center;
-}
-
-.pagination {
-	margin-top: 20px;
-}

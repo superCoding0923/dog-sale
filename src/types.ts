@@ -15,7 +15,7 @@ export interface AuthResponse {
   message: string;
 }
 
-export interface PaginatedResponse<T> {
+export interface PaginatedResponse {
   resultIds: string[];
   total: number;
   next?: string;
