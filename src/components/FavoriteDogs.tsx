@@ -22,7 +22,7 @@ const FavoriteDogs: React.FC<FavoriteDogsProps> = ({ favorites, onFavorite, onMa
     <div className='w-100'>
       <h1 className='text-3xl'>Your Favorite Dogs</h1>
       <DogList dogs={favorites} onFavorite={onFavorite} />
-      <button className='w-[400px] mx-auto border rounded-md px-10 py-3 bg-blue-500 text-white' onClick={handleMatch} disabled={favorites.length === 0}>
+      <button className='w-[250px] mx-auto border rounded-md px-10 py-3 bg-blue-500 text-white' onClick={handleMatch} disabled={favorites.length === 0}>
         Find a Match
       </button>
     </div>

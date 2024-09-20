@@ -3,6 +3,7 @@ import { Dog, PaginatedResponse } from '../types';
 import { fetchDogsByIds, searchDogs } from '../services/api';
 
 const useDogs = (query: any) => {
+  console.log("Query: ");
   console.log(query);
 
   const [dogs, setDogs] = useState<Dog[]>([]);

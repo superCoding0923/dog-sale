@@ -3,6 +3,7 @@ import { FilterBar, DogList, FavoriteDogs, Pagination, MatchModal } from '../com
 import useDogs from '../hooks/useDogs';
 import { fetchBreeds } from '../services/api';
 import { Dog } from '../types';
+import { isEmpty } from "../utils";
 
 const Search: React.FC = () => {
   const [favorites, setFavorites] = useState<Dog[]>([]);
@@ -23,6 +24,8 @@ const Search: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log("GET Breeds");
+
     const getBreeds = async () => {
       const breeds = await fetchBreeds();
       setBreeds(breeds);
@@ -33,18 +36,22 @@ const Search: React.FC = () => {
 
   useEffect(() => {
     console.log(query);
-  }, [setQuery]);
+  }, [setQuery, query]);
 
   return (
     <div className='container'>
       <h1 className='text-3xl'>Dog Search</h1>
       {loading && <p>Loading...</p>}
+      {!loading &&
+        <>
+          {breeds && <FilterBar breeds={breeds} query={query} setQuery={setQuery} />}
+          {dogs.length !== 0 && <DogList dogs={dogs} onFavorite={handleFavorite} />}
+          {!dogs && <h1 className="text-center text-3xl text-blue-500">No Dogs</h1>}
+          {total && <Pagination total={total} prev={prev} next={next} setQuery={setQuery} />}
+          {isEmpty(favorites) && <FavoriteDogs favorites={favorites} onFavorite={handleFavorite} onMatch={handleMatch} />}
+        </>
+      }
       {error && <p>{error}</p>}
-      {breeds && <FilterBar breeds={breeds} query={query} setQuery={setQuery} />}
-      <DogList dogs={dogs} onFavorite={handleFavorite} />
-      {!loading && <Pagination total={total} prev={prev} next={next} setQuery={setQuery} />}
-      <FavoriteDogs favorites={favorites} onFavorite={handleFavorite} onMatch={handleMatch} />
-      {bestPoppy && <MatchModal poppy={bestPoppy} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />}
     </div>
   );
 }
